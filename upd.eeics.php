@@ -55,6 +55,13 @@ class Eeics_upd {
 		);
 		
 		$this->EE->db->insert('modules', $mod_data);
+
+		$data = array(
+		    'class' => 'Eeics' ,
+		    'method' => 'generate_ics'
+		);
+
+		$this->EE->db->insert('actions', $data);
 		
 		// $this->EE->load->dbforge();
 		/**
@@ -84,6 +91,10 @@ class Eeics_upd {
 		
 		$this->EE->db->where('module_name', 'Eeics')
 					 ->delete('modules');
+
+		$this->EE->db->where('class', 'Eeics')
+					 ->where('method', 'generate_ics')
+					 ->delete('actions');
 		
 		// $this->EE->load->dbforge();
 		// Delete your custom tables & any ACT rows 
