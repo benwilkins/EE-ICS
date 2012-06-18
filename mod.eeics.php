@@ -109,6 +109,19 @@ class Eeics {
 		exit;
 
 	}
+
+	public function escape() {
+
+		$strip_newlines = $this->EE->TMPL->fetch_param('strip_newlines', 'no');
+		$content = $this->EE->TMPL->tagdata;
+
+		$content = str_replace(array("\n","\r"), '\n', $content);
+		$content = str_replace(array("\t"), '', $content);
+		$content = strip_tags($content);
+
+		return $content;
+
+	}
 	
 
 
