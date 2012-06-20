@@ -110,7 +110,7 @@ class Eeics {
 
 	}
 
-	public function escape() {
+	public function escape_string() {
 
 		$strip_newlines = $this->EE->TMPL->fetch_param('strip_newlines', 'no');
 		$content = $this->EE->TMPL->tagdata;
